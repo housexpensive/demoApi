@@ -37,7 +37,6 @@ pipeline {
                   try {
                     sh "docker service update --image ${env.imageName} demoApi"
                     sh "echo update service"
-                    sh "docker --version"
                   } catch (e){
                     sh "docker service create --name demoApi -p ${env.port}:3000 ${env.imageName}"
                     sh "echo create service"
